@@ -1,0 +1,171 @@
+{
+    "education":[
+      {
+        "course":"B. TECH (Computer Science and Engineering)",
+        "intitute":"Sushila Devi Bansal College of Engineering, Indore",
+        "session":"2020-2024",
+        "grade":"7.77 CGPA"
+      },
+      {
+        "course":"INTERMEDIATE (MP Board)",
+        "intitute":"Govt Higher Secondary School, Chhatarpur",
+        "session":"2019-2020",
+        "grade":"75.8%"
+      },
+      {
+        "course":"MATRICULATION (MP Board)",
+        "intitute":"Dr. K. N. Memorial Higher Secondary School, Chhatarpur",
+        "session":"2017-2018",
+        "grade":"78.2%"
+      }
+    ],
+    "training":[
+      {
+        "name":"JAVA 2.o",
+        "duration":"Feb 2022-June 2022",
+        "intitute":"Universal Informatics,Indore",
+        "discription":"I learned creating a full-stack dynamic web application using Java technology."
+      },
+      {
+        "name":"Programming Basics",
+        "duration":"Jan 2022-Mar 2022",
+        "intitute":"Indian Instiute of Techonlogy , Bhopal",
+        "discription":"I learned creating an RPA bot using UiPath Studio to automate repetitive, rule-based tasks."
+      },
+      {
+        "name":"TCS-ION Creer Edge",
+        "duration":"Sep 2022-Oct 2022",
+        "intitute":"TCS ION Learning Hub",
+        "discription":"Course covered communication, presentation, soft skills, business etiquette, and IT fundamentals, enhancing my professional and interpersonal capabilities."
+      }
+    ],
+
+    "skills": [
+      {
+        "id": "1",
+        "src": "./img/product-chain-1.png",
+        "title": "Front-End",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique"
+      },
+      {
+        "id": "2",
+        "src": "./img/tag-1.png",
+        "title": "Back-End",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique"
+      },
+      {
+        "id": "3",
+        "src": "./img/feather-pen-2.png",
+        "title": "UI & UX Design",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique"
+      },
+      {
+        "id": "4",
+        "src": "./img/feather-pen-1.png",
+        "title": "Webflow Development",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique"
+      }
+    ],
+    "skilldata": [
+      {
+        "src": "./img/Languages/cpp.png",
+        "title": "C++",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique"
+      },
+      {
+        "src": "./img/Languages/js.png",
+        "title": "Javascript",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique"
+      },
+      {
+        "src": "./img/Languages/nodejs.png",
+        "title": "Node js",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique"
+      },
+      {
+        "src": "./img/Languages/react.png",
+        "title": "React",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique"
+      },
+      {
+        "src": "./img/Languages/redux.png",
+        "title": "Redux",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique"
+      },
+      {
+        "src": "./img/Languages/express.png",
+        "title": "Express js",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique"
+      },
+      {
+        "src": "./img/Languages/mongodb.png",
+        "title": "MongoDB",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique"
+      },
+      {
+        "src": "./img/Languages/mysql.png",
+        "title": "MySQL",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique"
+      },
+      {
+        "src": "./img/Languages/git.png",
+        "title": "Git",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique"
+      },
+      {
+        "src": "./img/Languages/github.png",
+        "title": "Github",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique"
+      }
+    ]
+    ,
+    "portfolio": [
+      {
+        "id": "1",
+        "src": "./img/homestay.png",
+        "title": "Excellence Study",  
+        "description": "A full stack based web application to support authentic family to run their homestay by provding accommodation to Students. ReactJS used to create fully responsive, single page front-end.Graph Ql is used to provide embbed notes from hashnode and Next.js is used to API routes handling",
+        "link": "https://github.com/ankitoid/Excellence-Study"
+      },
+      {
+        "id": "2",
+        "src": "./img/helloworld.png",
+        "title": "Hello World!",
+        "description": "A full stack web app that emulates core functionality of social media platforms. I implemented features including user login-signup, post creation, like the posts and follow unfollow the other users. along with React Technology, I used Redux for state management, JWT Token for authentication.,",
+        "link": "https://github.com/ankitoid/Hello-World"
+      },
+      {
+        "id": "3",
+        "src": "./img/taskmanager.png",
+        "title": "Fitness Club",
+        "description": "A Full stack based Fitness Club web application empowers users to provide efficiently fitness functionality with ease. With comprehensive CRUD functionality, you can effortlessly create, view, update, and delete tasks, providing a seamless and organized GYM management experience.",
+        "link": "https://github.com/ankitoid/FitnessClub/tree/main"
+      }
+    ],
+    "testimonial": [
+      {
+        "id": "1",
+        "count": "5",
+        "src": "./img/avatar-image.png",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique",
+        "author_name": "Dianne Russel",
+        "author_designation": "Starbucks"
+      },
+      {
+        "id": "2",
+        "count": "5",
+        "src": "./img/avatar-image-1.png",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique",
+        "author_name": "Kristin Watson",
+        "author_designation": "Louis Vuitton"
+      },
+      {
+        "id": "3",
+        "count": "5",
+        "src": "./img/avatar-image-2.png",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique",
+        "author_name": "Kathryn Murphy",
+        "author_designation": "McDonald's"
+      }
+    ]
+  }
