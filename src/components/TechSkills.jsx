@@ -64,7 +64,7 @@ const TechSkills = () => {
               <img src={item.src} alt={item.title} className="w-full h-full object-contain" />
             </div>
             <h3 className="text-xl text-black font-semibold mb-2">{item.title}</h3>
-            <p className="text-gray-600 text-sm">{item.description}</p>
+            {/* <p className="text-gray-600 text-sm">{item.description}</p> */}
           </motion.div>
         ))}
       </motion.div>

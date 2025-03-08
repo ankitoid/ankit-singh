@@ -52,7 +52,7 @@ const Hero = () => {
 
         {/* Resume Button */}
         <button
-          className="mt-6 px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-semibold shadow-lg transition"
+          className="mt-6 px-16 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-semibold shadow-lg transition"
           onClick={() =>
             window.open("https://drive.google.com/file/d/1iVjPEmuNgtYAHYHh0YFU7apkpCwB3sT_/view?usp=sharing", "_blank")
           }
