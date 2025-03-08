@@ -19,7 +19,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-white shadow-md py-4 px-6 flex justify-between items-center z-50 dark:bg-gray-900">
+    <nav className="fixed top-0 left-0 right-0 bg-gray-900 shadow-md py-4 px-6 flex justify-between items-center z-50 dark:bg-gray-900">
       {/* Logo */}
       <div className="text-2xl font-bold text-blue-600 dark:text-white">
         <Link to="heroSection" smooth={true} offset={-70} className="cursor-pointer">
@@ -38,7 +38,7 @@ const Navbar = () => {
           navActive ? "flex flex-col items-center gap-6 py-6 shadow-md" : "hidden"
         }`}
       >
-        <ul className="flex flex-col lg:flex-row gap-6 text-lg font-medium text-gray-800 dark:text-white">
+        <ul className="flex flex-col lg:flex-row gap-6 text-lg font-medium text-white dark:text-white">
           <li>
             <Link to="MyPortfolio" smooth={true} offset={-70} duration={500} onClick={closeMenu} className="hover:text-blue-600">
               Projects
