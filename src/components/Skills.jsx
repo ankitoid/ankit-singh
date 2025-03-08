@@ -26,11 +26,11 @@ const skills = [
 
 const Skills = () => {
   return (
-    <section className="bg-gray-800 py-16 text-white">
-      <h2 className="text-center text-4xl font-bold mb-8">My Skills</h2>
+    <section className="bg-gray-900 py-4 text-black">
+      <h2 className="text-center text-4xl font-bold mb-8 text-white">My Skills</h2>
       <div className="flex flex-wrap justify-center gap-8 px-6">
         {skills.map((skill) => (
-          <div key={skill.id} className="bg-gray-900 rounded-lg p-6 text-center shadow-lg w-80 transform transition duration-300 hover:scale-105 hover:shadow-xl">
+          <div key={skill.id} className="bg-white rounded-lg p-6 text-center shadow-lg w-80 transform transition duration-300 hover:scale-105 hover:shadow-xl">
             <img src={skill.src} alt={skill.title} className="w-20 mx-auto mb-4" />
             <h3 className="text-2xl font-semibold mb-2">{skill.title}</h3>
             <p className="text-gray-400 text-sm">{skill.description}</p>

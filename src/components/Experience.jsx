@@ -40,9 +40,9 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id="MyExperience" className="py-20 bg-gray-100">
+    <section id="MyExperience" className=" bg-gray-900">
       <div className="max-w-4xl mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">My Experience</h2>
+        <h2 className="text-4xl font-bold text-center text-white mb-12">My Experience</h2>
         <div className="relative border-l-4 border-blue-500 pl-6">
           {experiences.map((exp, index) => (
             <motion.div

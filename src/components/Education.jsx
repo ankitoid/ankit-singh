@@ -47,9 +47,9 @@ export const Education = () => {
   ];
 
   return (
-    <section className="py-24 px-8 md:px-20 bg-gray-100" id="myEducation">
+    <section className="py-24 px-8 md:px-20 bg-gray-900" id="myEducation">
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-gray-800">Education & Training</h2>
+        <h2 className="text-4xl font-bold text-white">Education & Training</h2>
       </div>
       <div className="flex flex-col md:flex-row gap-12">
         {/* Education Section */}

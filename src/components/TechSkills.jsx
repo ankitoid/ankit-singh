@@ -55,16 +55,16 @@ const TechSkills = () => {
         {skilldata.map((item, idx) => (
           <motion.div
             key={idx}
-            className="p-6 bg-gray-800 rounded-xl shadow-lg text-center hover:scale-105 transition-transform"
+            className="p-6 bg-white rounded-xl shadow-lg text-center hover:scale-105 transition-transform"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: idx * 0.1, duration: 0.5 }}
           >
-            <div className="w-20 h-20 mx-auto mb-4">
+            <div className="w-20 h-20 mx-auto mb-4 ">
               <img src={item.src} alt={item.title} className="w-full h-full object-contain" />
             </div>
-            <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-            <p className="text-gray-400 text-sm">{item.description}</p>
+            <h3 className="text-xl text-black font-semibold mb-2">{item.title}</h3>
+            <p className="text-gray-600 text-sm">{item.description}</p>
           </motion.div>
         ))}
       </motion.div>
