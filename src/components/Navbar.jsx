@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-scroll";
+import { Link } from "react-router-dom";  // Use Link from react-router-dom
 import { FiMenu, FiX } from "react-icons/fi";
 import logo from "../assets/logoAnkit.png"; // Ensure correct path
 
@@ -22,8 +22,8 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 bg-gray-900 shadow-md py-4 px-6 flex justify-between items-center z-50 dark:bg-gray-900">
       {/* Logo */}
       <div className="text-2xl font-bold text-blue-600 dark:text-white">
-        <Link to="heroSection" smooth={true} offset={-70} className="cursor-pointer">
-          <img src={logo} alt="Logo" className="w-auto h-9" /> 
+        <Link to="/" className="cursor-pointer">
+          <img src={logo} alt="Logo" className="w-auto h-9" />
         </Link>
       </div>
 
@@ -40,28 +40,28 @@ const Navbar = () => {
       >
         <ul className="flex flex-col lg:flex-row gap-6 text-lg font-medium text-white dark:text-white">
           <li>
-            <Link to="MyPortfolio" smooth={true} offset={-70} duration={500} onClick={closeMenu} className="hover:text-blue-600">
-              Projects
+            <Link to="/" onClick={closeMenu} className="hover:text-blue-600">
+              Home
             </Link>
           </li>
           <li>
-            <Link to="myEducation" smooth={true} offset={-70} duration={500} onClick={closeMenu} className="hover:text-blue-600">
-              Education
-            </Link>
-          </li>
-          <li>
-            <Link to="MyExperience" smooth={true} offset={-70} duration={500} onClick={closeMenu} className="hover:text-blue-600">
-              Experience
-            </Link>
-          </li>
-          <li>
-            <Link to="AboutMe" smooth={true} offset={-70} duration={500} onClick={closeMenu} className="hover:text-blue-600">
+            <Link to="/about" onClick={closeMenu} className="hover:text-blue-600">
               About Me
             </Link>
           </li>
           <li>
-            <Link to="testimonial" smooth={true} offset={-70} duration={500} onClick={closeMenu} className="hover:text-blue-600">
-              Skillset
+            <Link to="/" onClick={closeMenu} className="hover:text-blue-600">
+              Experience
+            </Link>
+          </li>
+          <li>
+            <Link to="/" onClick={closeMenu} className="hover:text-blue-600">
+              Projects
+            </Link>
+          </li>
+          <li>
+            <Link to="/" onClick={closeMenu} className="hover:text-blue-600">
+              Skills
             </Link>
           </li>
         </ul>
@@ -69,10 +69,7 @@ const Navbar = () => {
 
       {/* Contact Button */}
       <Link
-        to="Contact"
-        smooth={true}
-        offset={-70}
-        duration={500}
+        to="/"
         className="hidden lg:inline-block bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition"
         onClick={closeMenu}
       >

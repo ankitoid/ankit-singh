@@ -1,12 +1,14 @@
 import React from "react";
 import { SlArrowRight } from "react-icons/sl";
 import aboutImage from "../assets/about-croped.png"; // Ensure correct path
+import Education from "./Education";
 
 const About = () => {
   return (
+   <>
     <section
       id="AboutMe"
-      className="flex flex-col md:flex-row items-center gap-10 px-6 md:px-16 py-2"
+      className="flex flex-col md:flex-row items-center gap-10 px-6 mt-12 md:px-16 py-12"
     >
       {/* Image Section */}
       <div className="w-full md:w-1/3 flex justify-center">
@@ -77,7 +79,10 @@ const About = () => {
           </ul>
         </div>
       </div>
+     
     </section>
+    <Education/>
+    </>
   );
 };
 
