@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";  // Use Link from react-router-dom
+import { Link as ScrollLink } from "react-scroll";  // Use react-scroll for smooth scrolling
+import { Link as RouterLink } from "react-router-dom"; // Use react-router-dom for page navigation
 import { FiMenu, FiX } from "react-icons/fi";
 import logo from "../assets/logoAnkit.png"; // Ensure correct path
 
@@ -22,9 +23,9 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 bg-gray-900 shadow-md py-4 px-6 flex justify-between items-center z-50 dark:bg-gray-900">
       {/* Logo */}
       <div className="text-2xl font-bold text-blue-600 dark:text-white">
-        <Link to="/" className="cursor-pointer">
+        <RouterLink to="/" className="cursor-pointer">
           <img src={logo} alt="Logo" className="w-auto h-9" />
-        </Link>
+        </RouterLink>
       </div>
 
       {/* Mobile Menu Button */}
@@ -40,41 +41,44 @@ const Navbar = () => {
       >
         <ul className="flex flex-col lg:flex-row gap-6 text-lg font-medium text-white dark:text-white">
           <li>
-            <Link to="/" onClick={closeMenu} className="hover:text-blue-600">
+            <RouterLink to="/" onClick={closeMenu} className="hover:text-blue-600">
               Home
-            </Link>
+            </RouterLink>
           </li>
           <li>
-            <Link to="/about" onClick={closeMenu} className="hover:text-blue-600">
+            <RouterLink to="/about" onClick={closeMenu} className="hover:text-blue-600">
               About Me
-            </Link>
+            </RouterLink>
           </li>
           <li>
-            <Link to="/" onClick={closeMenu} className="hover:text-blue-600">
+            <ScrollLink to="MyExperience" smooth={true} offset={-70} duration={500} onClick={closeMenu} className="cursor-pointer hover:text-blue-600">
               Experience
-            </Link>
+            </ScrollLink>
           </li>
           <li>
-            <Link to="/" onClick={closeMenu} className="hover:text-blue-600">
-              Projects
-            </Link>
-          </li>
-          <li>
-            <Link to="/" onClick={closeMenu} className="hover:text-blue-600">
+            <ScrollLink to="Myskills" smooth={true} offset={-70} duration={500} onClick={closeMenu} className="cursor-pointer hover:text-blue-600">
               Skills
-            </Link>
+            </ScrollLink>
+          </li>
+          <li>
+            <ScrollLink to="MyProjects" smooth={true} offset={-70} duration={500} onClick={closeMenu} className="cursor-pointer hover:text-blue-600">
+              Projects
+            </ScrollLink>
           </li>
         </ul>
       </div>
 
       {/* Contact Button */}
-      <Link
-        to="/"
-        className="hidden lg:inline-block bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition"
+      <ScrollLink
+        to="contact"
+        smooth={true}
+        offset={-70}
+        duration={500}
+        className="hidden lg:inline-block bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition cursor-pointer"
         onClick={closeMenu}
       >
         Contact Me
-      </Link>
+      </ScrollLink>
     </nav>
   );
 };
