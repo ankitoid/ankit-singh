@@ -7,10 +7,10 @@ const Hero = () => {
   return (
     <section id="heroSection" className="bg-gray-900 text-white py-20 px-10 flex flex-col md:flex-row items-center">
       {/* Left Content */}
-      <div className="md:w-1/2 flex flex-col gap-6">
+      <div className="md:w-1/2 flex flex-col gap-6 p-12">
         <p className="text-lg text-gray-400">Hello 👋, I'm</p>
         <h1 className="text-5xl font-bold text-white">
-          <span className="text-blue-400">Ankit Singh Ghosh</span>
+          <span className="text-blue-400 tx">Ankit Singh Ghosh</span>
         </h1>
         <p className="text-lg text-gray-300">Software Developer at GlobalXperts</p>
 
