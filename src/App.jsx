@@ -2,8 +2,8 @@ import Hero from "./components/Hero";
 import Projects from "./components/Projects";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-import About from "./components/About";
-import Education from "./components/Education";
+import About from "./pages/About";
+import Education from "./pages/Education";
 import Contact from "./components/Contact";
 import Experience from "./components/Experience";
 import Skills from "./components/Skills";
@@ -14,10 +14,10 @@ function App() {
       <Navbar />
       <Hero />
       <Skills />
-      <Education />
+      {/* <Education /> */}
       <Experience />
       <TechSkills />
-      <About />
+      {/* <About /> */}
 
       <Projects />
 
