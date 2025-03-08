@@ -23,9 +23,9 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 bg-gray-900 shadow-md py-4 px-6 flex justify-between items-center z-50 dark:bg-gray-900">
       {/* Logo */}
       <div className="text-2xl font-bold text-blue-600 dark:text-white">
-        <RouterLink to="/" className="cursor-pointer">
+        <ScrollLink to="heroSection"  smooth={true} offset={-70} duration={500} className="cursor-pointer">
           <img src={logo} alt="Logo" className="w-auto h-9" />
-        </RouterLink>
+        </ScrollLink>
       </div>
 
       {/* Mobile Menu Button */}
@@ -41,9 +41,9 @@ const Navbar = () => {
       >
         <ul className="flex flex-col lg:flex-row gap-6 text-lg font-medium text-white dark:text-white">
           <li>
-            <RouterLink to="/" onClick={closeMenu} className="hover:text-blue-600">
+            <ScrollLink to="heroSection"  smooth={true} offset={-70} duration={500} onClick={closeMenu} className="hover:text-blue-600 cursor-pointer">
               Home
-            </RouterLink>
+            </ScrollLink>
           </li>
           <li>
             <RouterLink to="/about" onClick={closeMenu} className="hover:text-blue-600">

@@ -4,7 +4,7 @@ import Hero from "./components/Hero";
 import Projects from "./components/Projects";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-import About from "./pages/About"; // Ensure correct path
+import About from "./pages/About"; 
 import Contact from "./components/Contact";
 import Experience from "./components/Experience";
 import Skills from "./components/Skills";
@@ -13,7 +13,7 @@ import TechSkills from "./components/TechSkills";
 function App() {
   return (
     <Router>
-      <ScrollToTop /> {/* Ensures scrolling to top on route change */}
+      <ScrollToTop /> 
       <div className="bg-gray-900 text-white">
         <Navbar />
         <Routes>
