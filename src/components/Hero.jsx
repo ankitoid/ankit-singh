@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <section id="heroSection" className="bg-gray-900 text-white py-20 px-10 flex flex-col md:flex-row items-center">
       {/* Left Content */}
-      <div className="md:w-1/2 flex flex-col gap-6 p-12">
+      <div className="md:w-1/2 flex flex-col gap-6 md:p-12 ">
         <p className="text-lg text-gray-400">Hello 👋, I'm</p>
         <h1 className="text-5xl font-bold text-white">
           <span className="text-blue-400 tx">Ankit Singh Ghosh</span>
@@ -52,9 +52,9 @@ const Hero = () => {
 
         {/* Resume Button */}
         <button
-          className="mt-6 px-16 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-semibold shadow-lg transition"
+          className="mt-4 w-64 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-semibold shadow-lg transition"
           onClick={() =>
-            window.open("https://drive.google.com/file/d/1iVjPEmuNgtYAHYHh0YFU7apkpCwB3sT_/view?usp=sharing", "_blank")
+            window.open("https://drive.google.com/file/d/1AKDE65IXTJmkKnBJX7B3h0IzopUkyyzR/view?usp=sharing", "_blank")
           }
         >
           Get Resume

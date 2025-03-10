@@ -9,6 +9,7 @@ import Contact from "./components/Contact";
 import Experience from "./components/Experience";
 import Skills from "./components/Skills";
 import TechSkills from "./components/TechSkills";
+import Blog from "./pages/Blog";
 
 function App() {
   return (
@@ -26,11 +27,14 @@ function App() {
                 <Experience />
                 <TechSkills />
                 <Projects />
+                <Blog/>
                 <Contact />
               </>
             }
           />
           <Route path="/about" element={<About />} />
+          <Route path="/" element={<Hero />} />
+
         </Routes>
         <Footer />
       </div>

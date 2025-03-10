@@ -9,7 +9,7 @@ import {
   BsTwitter,
   BsWhatsapp,
 } from "react-icons/bs";
-import logo from "../assets/logoAnkit.png"; // Ensure correct path
+import logo from "../assets/logoAnkit.png"; 
 
 const Footer = () => {
   return (
@@ -18,8 +18,8 @@ const Footer = () => {
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-10">
           {/* Logo Section */}
-          <div className="mb-6 md:mb-0">
-            <Link to="heroSection" smooth={true} offset={-70} className="cursor-pointer">
+          <div className="mb-6 md:mb-0 ">
+            <Link to="heroSection" smooth={true} offset={-70} className="cursor-pointer ">
               <img
                 src={logo}
                 alt="Logo"
