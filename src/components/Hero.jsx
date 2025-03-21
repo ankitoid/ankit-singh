@@ -6,7 +6,7 @@ import {
   SiLeetcode,
   SiLinkedin,
 } from "react-icons/si";
-import cmpter from "../assets/cmptdy.png";
+import cmpter from "../assets/cmptDy.png";
 
 const Hero = () => {
   const svgBackground = `data:image/svg+xml,%3Csvg width='82' height='76' viewBox='0 0 82 76' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_151_48)'%3E%3Cpath d='M25.96 75.05C19.85 75.05 12.81 69.42 3.17004 57.03C-0.99996 51.67 -1.06996 44.49 3.00004 39.17C5.08004 36.45 12.83 28.72 30.57 34.13C30.93 26.97 31.39 19.83 32.57 14.18C34.52 4.78001 38.61 0.0100098 44.72 0.0100098C58.51 0.0100098 73.05 21 78.53 35.18C82.7 45.97 82.5 53.86 77.95 58C73.81 61.76 67.29 61.46 58.57 57.1C47.84 51.73 44.1 49.95 39.47 47.95C38.56 61.49 36.63 72.16 28.96 74.59C27.98 74.9 26.98 75.06 25.96 75.06V75.05Z' fill='black'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_151_48'%3E%3Crect width='81.52' height='75.05' fill='black'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E`;
