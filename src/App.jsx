@@ -15,8 +15,8 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="bg-gray-900 text-white">
-        <Navbar />
+      <div className="bg-[#111010]  text-white">
+       
         <Routes>
           <Route
             path="/"
@@ -26,7 +26,6 @@ function App() {
                 <Skills />
                 <TechSkills />
                 <Experience />
-
                 <Projects />
                 <Blog />
                 <Contact />

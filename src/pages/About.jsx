@@ -1,17 +1,19 @@
 import React from "react";
 import { SlArrowRight } from "react-icons/sl";
-import aboutImage from "../assets/about-croped.png"; // Ensure correct path
+import aboutImage from "../assets/about-croped.png"; 
 import Education from "./Education";
+import Navbar from "../components/Navbar";
 
 const About = () => {
   return (
    <>
+    <Navbar />
     <section
       id="AboutMe"
-      className="flex flex-col md:flex-row items-center gap-10 px-6 mt-12 md:px-16 py-12"
+      className="bg-[#111010] flex flex-col md:flex-row items-center gap-10 p-16 "
     >
       {/* Image Section */}
-      <div className="w-full md:w-1/3 flex justify-center">
+      <div className="w-full md:w-2/5 flex justify-center">
         <img
           src={aboutImage}
           alt="About Me"
@@ -21,8 +23,8 @@ const About = () => {
 
       {/* Text Content Section */}
       <div className="w-full md:w-2/3"> 
-        <h1 className="text-3xl font-bold  mb-4 text-white">About Me</h1>
-        <p className="text-lg text-white leading-relaxed">
+        <h1 className="text-2xl font-bold  mb-4 text-white">About Me</h1>
+        <p className="text-md text-white leading-relaxed">
           I am a passionate software developer with a strong analytical mindset,
           currently working as a{" "}
           <strong>Software Developer at GlobalXperts</strong>. I specialize in{" "}
@@ -43,36 +45,36 @@ const About = () => {
 
         {/* Key Aspects Section */}
         <div className="mt-6">
-          <h3 className="text-xl font-semibold text-white mb-3">Key Aspects</h3>
+          <h3 className="text-md font-semibold text-white mb-3">Key Aspects</h3>
           <ul className="space-y-2">
-            <li className="flex items-center text-lg text-white">
+            <li className="flex items-center text-md text-white">
               <SlArrowRight className="text-blue-600 mr-2" />{" "}
               <strong>
                 Full-Stack Web Development (React, Node.js, Express, MongoDB)
               </strong>
             </li>
-            <li className="flex items-center text-lg text-white">
+            <li className="flex items-center text-md text-white">
               <SlArrowRight className="text-blue-600 mr-2" />{" "}
               <strong>
                 DevOps & Cloud (AWS, Docker, Kubernetes, CI/CD, Infrastructure
                 Automation)
               </strong>
             </li>
-            <li className="flex items-center text-lg text-white">
+            <li className="flex items-center text-md text-white">
               <SlArrowRight className="text-blue-600 mr-2" />{" "}
               <strong>
                 Optimized & Scalable Code (Data Structures & Algorithms in Java)
               </strong>
             </li>
-            <li className="flex items-center text-lg text-white">
+            <li className="flex items-center text-md text-white">
               <SlArrowRight className="text-blue-600 mr-2" />{" "}
               <strong>Building High-Performance RESTful APIs</strong>
             </li>
-            <li className="flex items-center text-lg text-white">
+            <li className="flex items-center text-md text-white">
               <SlArrowRight className="text-blue-600 mr-2" />{" "}
               <strong>Database Management & Optimization</strong>
             </li>
-            <li className="flex items-center text-lg text-white">
+            <li className="flex items-center text-md text-white">
               <SlArrowRight className="text-blue-600 mr-2" />{" "}
               <strong>Continuous Learning & Problem-Solving</strong>
             </li>

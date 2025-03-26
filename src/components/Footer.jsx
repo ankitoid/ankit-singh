@@ -9,10 +9,11 @@ import {
   BsTwitter,
   BsWhatsapp,
 } from "react-icons/bs";
-
+import { Link as ScrollLink } from "react-scroll";
+import { Link as RouterLink } from "react-router-dom";
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-gray-300 py-12">
+    <footer className="bg-[#111010] text-gray-300 py-12">
       <div className="container mx-auto px-6 md:px-16">
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-10">
@@ -46,20 +47,38 @@ const Footer = () => {
 
           {/* Navigation Links */}
           <ul className="flex flex-wrap justify-center md:justify-start gap-6 md:gap-10 text-lg">
-            {[
-              { name: "Projects", to: "MyPortfolio" },
-              { name: "Education", to: "myEducation" },
-              { name: "Skillset", to: "testimonial" },
-              { name: "About Me", to: "AboutMe" },
-              { name: "Contact Me", to: "Contact" },
-            ].map((item, index) => (
-              <li key={index} className="hover:text-blue-400 transition-colors duration-300">
-                <Link to={item.to} smooth={true} offset={-70} duration={500}>
-                  {item.name}
-                </Link>
-              </li>
-            ))}
+            <li>
+              <ScrollLink to="heroSection" smooth={true} offset={-70} className="hover:text-blue-400 cursor-pointer">
+                Home
+              </ScrollLink>
+            </li>
+            <li>
+              <RouterLink to="/about" className="hover:text-blue-400">
+                About Me
+              </RouterLink>
+            </li>
+            <li>
+              <ScrollLink to="Myskills" smooth={true} offset={-70} className="hover:text-blue-400 cursor-pointer">
+                Skills
+              </ScrollLink>
+            </li>
+            <li>
+              <ScrollLink to="MyExperience" smooth={true} offset={-70} className="hover:text-blue-400 cursor-pointer">
+                Experience
+              </ScrollLink>
+            </li>
+            <li>
+              <ScrollLink to="MyProjects" smooth={true} offset={-70} className="hover:text-blue-400 cursor-pointer">
+                Projects
+              </ScrollLink>
+            </li>
+            <li>
+              <ScrollLink to="contact" smooth={true} offset={-70} className="hover:text-blue-400 cursor-pointer">
+                Contact Me
+              </ScrollLink>
+            </li>
           </ul>
+
 
           {/* Social Icons */}
           <div className="flex gap-5 text-2xl">
@@ -88,12 +107,12 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
           {/* Made By */}
-          <p className="text-lg font-medium text-gray-400">Made with 💜 by Ankit</p>
+          <p className="text-md font-medium text-gray-400">Made with 💜 by Ankit</p>
 
           {/* Contact Information */}
           <ul className="flex flex-col md:flex-row gap-6 md:gap-10 text-gray-400 text-lg">
             <li className="flex items-center gap-2">
-              <CiLocationOn className="text-blue-400 text-2xl" />
+              <CiLocationOn className="text-blue-400 text-md" />
               <a
                 href="https://www.google.com/maps/@28.5415911,77.2895358,13z?entry=ttu"
                 target="_blank"
@@ -104,7 +123,7 @@ const Footer = () => {
               </a>
             </li>
             <li className="flex items-center gap-2">
-              <AiOutlineMail className="text-blue-400 text-2xl" />
+              <AiOutlineMail className="text-blue-400 text-md" />
               <a
                 href="mailto:ankitsinghghoshi1234@gmail.com"
                 target="_blank"
@@ -115,7 +134,7 @@ const Footer = () => {
               </a>
             </li>
             <li className="flex items-center gap-2">
-              <BsPhone className="text-blue-400 text-2xl" />
+              <BsPhone className="text-blue-400 text-md" />
               <a
                 href="tel:6265227382"
                 className="hover:text-blue-400 transition-colors"
@@ -131,3 +150,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
+

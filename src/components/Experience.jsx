@@ -40,7 +40,7 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id="MyExperience" className=" bg-gray-900">
+    <section id="MyExperience" className=" bg-[#111010]">
       <div className="max-w-4xl mx-auto px-6">
         <h2 className="text-4xl font-bold text-center text-white mb-12">My Experience</h2>
         <div className="relative border-l-4 border-blue-500 pl-6">
@@ -51,18 +51,18 @@ const Experience = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className="relative bg-white p-6 mb-10 shadow-lg rounded-lg"
+              className="relative bg-gray-700 p-6 mb-10 shadow-lg rounded-lg"
             >
               {/* Timeline Dot */}
               <div className="absolute -left-3 top-5 w-6 h-6 bg-blue-500 rounded-full border-4 border-white"></div>
 
               {/* Experience Content */}
-              <h3 className="text-2xl font-semibold text-blue-600">{exp.role}</h3>
-              <p className="text-lg font-medium text-gray-700">{exp.company} | {exp.duration}</p>
-              <p className="text-gray-600 italic">{exp.location}</p>
+              <h3 className="text-xl  text-gray-100">{exp.role}</h3>
+              <p className="text-lg  text-gray-100">{exp.company} | {exp.duration}</p>
+              <p className="text-gray-50">{exp.location}</p>
               <ul className="mt-4 space-y-2">
                 {exp.description.map((point, idx) => (
-                  <li key={idx} className="text-gray-700 text-md leading-relaxed flex items-start">
+                  <li key={idx} className="text-gray-100 text-sm leading-relaxed flex items-start">
                     <span className="mr-2 text-blue-500">•</span> {point}
                   </li>
                 ))}

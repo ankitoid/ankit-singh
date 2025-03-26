@@ -46,7 +46,7 @@ const Contact = () => {
   return (
     <motion.section
       id="contact"
-      className="py-16 px-6 md:px-20 bg-gray-900 text-white"
+      className="py-16 px-6 md:px-20 bg-[#111010] text-white"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
@@ -74,7 +74,7 @@ const Contact = () => {
         </div>
         {[{ label: "Email", type: "email", name: "email" }, { label: "Phone Number", type: "tel", name: "phone" }].map(({ label, type, name }) => (
           <motion.label key={name} className="block" whileHover={{ scale: 1.05 }}>
-            <span className="text-md font-semibold">{label}</span>
+            <span className="text-md ">{label}</span>
             <input
               type={type}
               name={name}

@@ -7,28 +7,28 @@ const Blog = () => {
   const blogs = [
     {
       title: "Tech Blog",
-      description: "Explore my latest tech blogs on React, DevOps.",
+      description: "Explore my latest tech blogs on Front-End, DevOps.",
       link: "https://es-study.vercel.app/blog",
       image: TechBlog,
-      bg: "bg-blue-500",
+      bg: "bg-blue-600",
     },
     {
       title: "Tutorials",
       description: "Step-by-step guides on modern web development.",
       link: "https://es-study.vercel.app/courses",
       image: Tutorial,
-      bg: "bg-green-500",
+      bg: "bg-green-600",
     },
     {
       title: "Interview Practice",
       description: "Crack coding interviews with my practice questions.",
       link: "https://es-study.vercel.app/About-Us",
       image: interviewPrep,
-      bg: "bg-yellow-500",
+      bg: "bg-yellow-600",
     },
   ];
   return (
-    <section className="bg-gray-900 text-white py-16">
+    <section className="bg-[#111010] text-white py-16">
       <div className="max-w-7xl mx-auto px-6">
         <h2 className="text-4xl font-bold text-center mb-12 relative inline-block before:absolute before:-inset-2 before:bg-gradient-to-r before:from-blue-400 before:to-purple-600 before:-z-10 before:rounded-lg">
           My Blog & Resources
@@ -40,7 +40,7 @@ const Blog = () => {
               href={blog.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block overflow-hidden rounded-xl shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl"
+              className="group block overflow-hidden rounded-xl shadow-lg transform transition duration-500 hover:scale-100 hover:shadow-2xl"
             >
               <div className="relative w-full h-56 overflow-hidden">
                 <img

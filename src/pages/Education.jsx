@@ -47,14 +47,14 @@ export const Education = () => {
   ];
 
   return (
-    <section className="py-24 px-8 md:px-20 bg-gray-900" id="myEducation">
+    <section className="py-24 px-8 md:px-20 bg-[#111010]" id="myEducation">
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold text-white">Education & Training</h2>
       </div>
       <div className="flex flex-col md:flex-row gap-12">
         {/* Education Section */}
-        <div className="flex-1 bg-white shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow duration-300">
-          <h2 className="text-2xl font-semibold text-gray-700 mb-6">Education</h2>
+        <div className="flex-1 bg-gray-600 shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow duration-300">
+          <h2 className="text-2xl font-semibold text-gray-100 mb-6">Education</h2>
           {educationData.map((itm, index) => (
             <div key={index} className="bg-gray-50 shadow-md p-6 rounded-lg mb-6 transform hover:scale-105 transition-transform duration-300">
               <h4 className="text-lg font-semibold text-gray-800">{itm.course}</h4>
@@ -67,8 +67,8 @@ export const Education = () => {
           ))}
         </div>
         {/* Training Section */}
-        <div className="flex-1 bg-white shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow duration-300">
-          <h2 className="text-2xl font-semibold text-gray-700 mb-6">Training</h2>
+        <div className="flex-1 bg-gray-600 shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow duration-300">
+          <h2 className="text-2xl font-semibold text-gray-100 mb-6">Training</h2>
           {trainingData.map((itm, index) => (
             <div key={index} className="bg-gray-50 shadow-md p-6 rounded-lg mb-6 transform hover:scale-105 transition-transform duration-300">
               <div className="flex justify-between">
