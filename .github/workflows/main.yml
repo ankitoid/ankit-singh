@@ -47,12 +47,6 @@ jobs:
       with:
         node-version: 18
 
-    - name: Install Dependencies
-      run: npm ci
-
-    - name: Build Vite App
-      run: npm run build
-
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
@@ -60,5 +54,11 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
 
-    - name: Deploy to S3 
+    - name: Install Dependencies
+      run: npm ci
+
+    - name: Build Vite App
+      run: npm run build
+
+    - name: Deploy to S3
       run: aws s3 sync dist/ s3://ankit-singh-s3 --delete
