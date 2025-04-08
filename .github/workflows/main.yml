@@ -1,9 +1,39 @@
-name: ankit singh
+# name: ankit singh
+
+# on:
+#   push:
+#     branches: [ main ]
+ 
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     - uses: actions/checkout@v2
+
+#     - name: AWS Credintial
+#       uses: aws-actions/configure-aws-credentials@v1
+#       with:
+#         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#         aws-region: us-east-1
+      
+#     - name: Install Dependencies
+#       run: npm ci
+
+#     - name: Build Vite App
+#       run: npm run build
+
+#     - name: Deploy to S3
+#       run: aws s3 sync dist/ s3://ankit-singh-s3 --delete
+   
+
+   name: Deploy Vite App to S3
 
 on:
   push:
     branches: [ main ]
- 
 
 jobs:
   build:
@@ -12,13 +42,23 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: AWS Credintial
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Install Dependencies
+      run: npm ci
+
+    - name: Build Vite App
+      run: npm run build
+
+    - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
-      
 
     - name: Deploy to S3
-      run: aws s3 sync . s3://ankit-singh-s3 --delete
+      run: aws s3 sync dist/ s3://ankit-singh-s3 --delete
