@@ -33,7 +33,7 @@ const SkillCard = ({ src, title, description, bgColor }) => {
 const Skills = () => {
   return (
     <section
-      className=" max-w-7xl mx-auto  bg-[#111010]"
+      className=" max-w-7xl mx-auto  bg-[#111010] mt-16 p-10 md:mt-0 md:p-0" 
       id="Myskills"
     >
       <h2 className="text-center text-3xl font-bold mb-10 text-white">

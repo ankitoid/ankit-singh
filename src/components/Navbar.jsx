@@ -70,13 +70,13 @@ const Navbar = () => {
 
       {/* Navbar Links */}
       <div
-        className={`lg:flex lg:items-center lg:gap-8 absolute lg:static top-16 left-0 w-full lg:w-auto bg-white  lg:bg-transparent transition-all duration-300 ${
+        className={`lg:flex lg:items-center lg:gap-8 absolute lg:static top-16 left-0 w-full lg:w-auto bg-white text-gray-900 lg:bg-transparent transition-all duration-300 ${
           navActive
             ? "flex flex-col items-center gap-6 py-6 shadow-md transition-all transform -translate-y-0 duration-500"
             : "hidden"
         }`}
       >
-        <ul className="flex flex-col lg:flex-row gap-6 text-sm font-medium text-black md:text-white dark:text-white">
+        <ul className="flex flex-col lg:flex-row gap-6 text-sm font-medium text-black md:text-white rounded-2xl border-gray-200 dark:border-gray-700">
           <li>
             <span
               onClick={() => handleNavigation("heroSection")}
