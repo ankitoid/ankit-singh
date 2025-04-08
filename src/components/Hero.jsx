@@ -89,7 +89,7 @@ const Hero = () => {
             </div>
 
             {/* Buttons */}
-            <div className="mt-6 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 mb-16">
+            <div className="mt-12 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 md:mb-10">
               <button
                 className="bg-blue-700 px-5 py-2 text-white rounded-lg hover:bg-blue-800"
                 onClick={() =>
@@ -109,7 +109,7 @@ const Hero = () => {
           </div>
 
           {/* Right Side Image */}
-          <div className="w-full md:w-1/2 flex justify-center mb-10 md:mb-0">
+          <div className="w-full md:w-1/2 flex justify-center mb-8 mt-8 md:mb-0">
             <img
               src={heroImg}
               alt="Profile"
