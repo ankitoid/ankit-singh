@@ -34,13 +34,8 @@ const About = () => {
           <strong>DevOps practices</strong>, including{" "}
           <strong>
             Docker, Kubernetes, AWS, CI/CD pipelines, and infrastructure
-            automation
+            automation.
           </strong>
-          . My problem-solving abilities and deep understanding of{" "}
-          <strong>data structures and algorithms in Java</strong> enable me to
-          write optimized and scalable code. I thrive on building efficient,
-          high-performance applications and continuously learning new
-          technologies to stay ahead in the industry.
         </p>
 
         {/* Key Aspects Section */}

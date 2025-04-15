@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom"; // ❌ Remove `Router` here
 import ScrollToTop from "./components/scrollToTop";
 import Hero from "./components/Hero";
 import Projects from "./components/Projects";
@@ -13,10 +13,10 @@ import Blog from "./pages/Blog";
 
 function App() {
   return (
-    <Router>
+    <>
       <ScrollToTop />
-      <div className="bg-[#111010]  text-white">
-       
+      <Navbar />
+      <div className="bg-[#111010] text-white">
         <Routes>
           <Route
             path="/"
@@ -33,11 +33,10 @@ function App() {
             }
           />
           <Route path="/about" element={<About />} />
-          <Route path="/" element={<Hero />} />
         </Routes>
         <Footer />
       </div>
-    </Router>
+    </>
   );
 }
 

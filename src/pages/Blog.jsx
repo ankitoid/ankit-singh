@@ -8,23 +8,29 @@ const Blog = () => {
     {
       title: "Tech Blog",
       description: "Explore my latest tech blogs on Front-End, DevOps.",
-      link: "https://es-study.vercel.app/blog",
+      link: "https://studyespace.vercel.app/blog",
       image: TechBlog,
       bg: "bg-blue-600",
     },
     {
       title: "Tutorials",
       description: "Step-by-step guides on modern web development.",
-      link: "https://es-study.vercel.app/courses",
+      link: "https://studyespace.vercel.app/courses",
       image: Tutorial,
       bg: "bg-green-600",
     },
     {
       title: "Interview Practice",
       description: "Crack coding interviews with my practice questions.",
-      link: "https://es-study.vercel.app/About-Us",
+      link: "https://studyespace.vercel.app/About-Us",
       image: interviewPrep,
       bg: "bg-yellow-600",
+    }, {
+      title: "Job Opportunities",
+      description: "Found your dream job with my curated list of opportunities.",
+      link: "https://studyespace.vercel.app/Job-Opportunities",
+      image: interviewPrep,
+      bg: "bg-red-600",
     },
   ];
   return (
@@ -33,7 +39,7 @@ const Blog = () => {
         <h2 className="text-4xl font-bold text-center mb-12 relative inline-block before:absolute before:-inset-2 before:bg-gradient-to-r before:from-blue-400 before:to-purple-600 before:-z-10 before:rounded-lg">
           My Blog & Resources
         </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {blogs.map((blog, index) => (
             <a
               key={index}

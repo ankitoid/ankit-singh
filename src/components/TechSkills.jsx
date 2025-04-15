@@ -120,7 +120,7 @@ const TechSkills = () => {
         <h2 className="text-3xl font-bold mb-6">Technical Skills</h2>
       </div>
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-2 px-6"
+        className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-2 px-6"
         initial={{ opacity: 0 }}
         animate={{ opacity: animate ? 1 : 0 }}
         transition={{ duration: 1 }}
