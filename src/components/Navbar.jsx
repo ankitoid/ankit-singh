@@ -76,7 +76,7 @@ const Navbar = () => {
             : "hidden"
         }`}
       >
-        <ul className="flex flex-col lg:flex-row gap-6 text-sm font-medium text-black md:text-white rounded-2xl border-gray-200 dark:border-gray-700">
+        <ul className="flex flex-col lg:flex-row gap-6 text-sm font-medium text-black lg:text-white rounded-2xl border-gray-200 dark:border-gray-700">
           <li>
             <span
               onClick={() => handleNavigation("heroSection")}

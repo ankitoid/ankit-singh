@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import toast, { Toaster } from "react-hot-toast";
 import { motion } from "framer-motion";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact = () => {
   const form = useRef();
@@ -13,6 +14,7 @@ const Contact = () => {
     message: "",
   });
   const [errors, setErrors] = useState({});
+  const [captchaToken, setCaptchaToken] = useState(null);
 
   const validateForm = () => {
     let newErrors = {};
@@ -28,6 +30,10 @@ const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
     if (!validateForm()) return;
+    if (!captchaToken) {
+      toast.error("Please verify the reCAPTCHA.");
+      return;
+    }
 
     let emailPromise = emailjs.sendForm(
       "service_x25rzfa",
@@ -41,6 +47,8 @@ const Contact = () => {
       success: "Message sent successfully!",
       error: "Failed to send. Try again later.",
     });
+
+    setCaptchaToken(null);
   };
 
   return (
@@ -96,6 +104,17 @@ const Contact = () => {
           />
           {errors.message && <p className="text-red-400 text-sm">{errors.message}</p>}
         </motion.label>
+
+        {/* reCAPTCHA Integration */}
+        <div className="flex justify-center">
+          <ReCAPTCHA
+            sitekey="6LexZxorAAAAAFgJZX3eWrr_zx8Is2YerYfigcLB" // 🔁 Replace this with your actual site key
+            onChange={(token) => setCaptchaToken(token)}
+            theme="dark"
+          />
+        </div>
+        {!captchaToken && <p className="text-red-400 text-sm text-center">Please verify the reCAPTCHA</p>}
+
         <motion.label className="flex items-center space-x-2" whileHover={{ scale: 1.05 }}>
           <input type="checkbox" required className="w-4 h-4" />
           <span className="text-sm">I accept the terms & conditions</span>
