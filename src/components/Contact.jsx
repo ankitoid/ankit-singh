@@ -2,10 +2,9 @@ import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import toast, { Toaster } from "react-hot-toast";
 import { motion } from "framer-motion";
-import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact = () => {
-  const form = useRef();
+  const form = useRef(null);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -14,15 +13,17 @@ const Contact = () => {
     message: "",
   });
   const [errors, setErrors] = useState({});
-  const [captchaToken, setCaptchaToken] = useState(null);
 
   const validateForm = () => {
-    let newErrors = {};
+    const newErrors = {};
     if (!formData.firstName.trim()) newErrors.firstName = "First name is required";
-    if (!formData.lastName.trim()) newErrors.lastName = "Last name is required";
-    if (!formData.email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) newErrors.email = "Invalid email";
-    if (!formData.phone.match(/^\d{10}$/)) newErrors.phone = "Enter a valid 10-digit phone number";
+    if (!formData.lastName.trim())  newErrors.lastName  = "Last name is required";
+    if (!/^[\w.%+-]+@[\w.-]+\.[A-Za-z]{2,}$/.test(formData.email))
+      newErrors.email = "Invalid email";
+    if (!/^\d{10}$/.test(formData.phone))
+      newErrors.phone = "Enter a valid 10-digit phone number";
     if (!formData.message.trim()) newErrors.message = "Message cannot be empty";
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -30,25 +31,35 @@ const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
     if (!validateForm()) return;
-    if (!captchaToken) {
-      toast.error("Please verify the reCAPTCHA.");
-      return;
-    }
 
-    let emailPromise = emailjs.sendForm(
-      "service_x25rzfa",
-      "template_x2xtfok",
-      form.current,
-      "yeSdKlO6GGDuQLbi9"
+    // 1) notify you
+    const notifyPromise = emailjs.sendForm(
+      "service_ankitoid",        // your Service ID
+      "template_5p8xoom",        // your Template ID for your notification
+      form.current,              // the <form> DOM node
+      "SFxt_YsLVw7pIxpug"        // your Public key
     );
 
-    toast.promise(emailPromise, {
-      loading: "Sending...",
-      success: "Message sent successfully!",
-      error: "Failed to send. Try again later.",
-    });
+    // 2) auto-reply to the visitor
+    const replyPromise = emailjs.send(
+      "service_ankitoid",
+      "template_auto_reply",     // create this in your dashboard
+      {
+        to_email: formData.email,
+        to_name:  formData.firstName,
+      },
+      "SFxt_YsLVw7pIxpug"
+    );
 
-    setCaptchaToken(null);
+    // unified toast for both
+    toast.promise(
+      Promise.all([notifyPromise, replyPromise]),
+      {
+        loading: "Sending your message…",
+        success: "Sent & auto-reply delivered!",
+        error:   "Oops, something went wrong. Please try again.",
+      }
+    );
   };
 
   return (
@@ -64,9 +75,17 @@ const Contact = () => {
         <h2 className="text-4xl font-bold">Contact Me</h2>
         <p className="text-lg text-gray-400 mt-2">Let's connect! Send me a message below.</p>
       </div>
-      <form ref={form} onSubmit={sendEmail} className="bg-gray-800 p-8 max-w-lg mx-auto space-y-6 rounded-lg">
+
+      <form
+        ref={form}
+        onSubmit={sendEmail}
+        className="bg-gray-800 p-8 max-w-lg mx-auto space-y-6 rounded-lg"
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {[{ label: "First Name", name: "firstName" }, { label: "Last Name", name: "lastName" }].map(({ label, name }) => (
+          {[
+            { label: "First Name", name: "firstName" },
+            { label: "Last Name",  name: "lastName"  }
+          ].map(({ label, name }) => (
             <motion.label key={name} className="block" whileHover={{ scale: 1.05 }}>
               <span className="text-md font-semibold">{label}</span>
               <input
@@ -80,9 +99,13 @@ const Contact = () => {
             </motion.label>
           ))}
         </div>
-        {[{ label: "Email", type: "email", name: "email" }, { label: "Phone Number", type: "tel", name: "phone" }].map(({ label, type, name }) => (
+
+        {[
+          { label: "Email",       type: "email", name: "email" },
+          { label: "Phone Number", type: "tel",   name: "phone" }
+        ].map(({ label, type, name }) => (
           <motion.label key={name} className="block" whileHover={{ scale: 1.05 }}>
-            <span className="text-md ">{label}</span>
+            <span className="text-md">{label}</span>
             <input
               type={type}
               name={name}
@@ -93,6 +116,7 @@ const Contact = () => {
             {errors[name] && <p className="text-red-400 text-sm">{errors[name]}</p>}
           </motion.label>
         ))}
+
         <motion.label className="block" whileHover={{ scale: 1.05 }}>
           <span className="text-md font-semibold">Message</span>
           <textarea
@@ -105,20 +129,11 @@ const Contact = () => {
           {errors.message && <p className="text-red-400 text-sm">{errors.message}</p>}
         </motion.label>
 
-        {/* reCAPTCHA Integration */}
-        <div className="flex justify-center">
-          <ReCAPTCHA
-            sitekey="6LexZxorAAAAAFgJZX3eWrr_zx8Is2YerYfigcLB" // 🔁 Replace this with your actual site key
-            onChange={(token) => setCaptchaToken(token)}
-            theme="dark"
-          />
-        </div>
-        {!captchaToken && <p className="text-red-400 text-sm text-center">Please verify the reCAPTCHA</p>}
-
         <motion.label className="flex items-center space-x-2" whileHover={{ scale: 1.05 }}>
           <input type="checkbox" required className="w-4 h-4" />
           <span className="text-sm">I accept the terms & conditions</span>
         </motion.label>
+
         <motion.button
           type="submit"
           className="w-full bg-green-600 text-white font-semibold py-2 rounded-md hover:bg-green-700 transition duration-300"
