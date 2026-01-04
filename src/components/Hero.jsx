@@ -34,7 +34,7 @@ const Hero = () => {
               alt="Icon"
             />
             <h1 className="text-4xl font-bold text-gray-300 mt-4 mb-2">
-              Code. Build. Solve.
+              Code. Build. Solve.1234
             </h1>
             <h2 className="text-xl text-blue-500 mt-2 font-bold mb-2">
               I'm a Full Stack Software Engineer
