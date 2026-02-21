@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { ThemeContext } from "./context/ThemeContext";
 
 // Components
-import GlobalStyles from "./components/GlobalStyles";
+import Styless from "./components/Styless";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Skills from "./components/Skills";
@@ -100,7 +100,7 @@ export default function App() {
 
   return (
     <ThemeContext.Provider value={{ dark, toggleTheme: () => setDark((d) => !d) }}>
-      <GlobalStyles />
+      <Styless />
       <div className={`portfolio-root ${dark ? "dark" : "light"} noise`}>
         <Navbar activeSection={activeSection} />
 
