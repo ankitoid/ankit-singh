@@ -177,7 +177,7 @@ const GlobalStyles = () => (
     .footer-nav ul { list-style:none; display:flex; flex-direction:column; gap:10px; }
     .footer-nav ul a { color:var(--text2); font-size:0.85rem; text-decoration:none; transition:color 0.2s; }
     .footer-nav ul a:hover { color:var(--accent); }
-    .footer-socials { display:flex; gap:12px; margin-top:16px; }
+    .footer-socials { display:flex; gap:12px; margin-top:16px; } 
     .footer-logo { font-family:'Syne',sans-serif; font-weight:800; font-size:1.3rem; letter-spacing:-0.02em; color:var(--text); display:flex; align-items:center; gap:8px; }
     .footer-bottom { border-top:1px solid var(--border); padding-top:24px; display:flex; justify-content:space-between; align-items:center; }
     .footer-bottom p { color:var(--text2); font-size:0.82rem; }
