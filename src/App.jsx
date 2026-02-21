@@ -12,7 +12,7 @@ import Projects from "./components/Projects";
 import Footer from "./components/Footer";
 import Contact from "./components/Contact";
 import ScrollToTop from "./components/scrollToTop";
-
+import profileImg from "./assets/tn.jpg";
 // Pages (used as inline sections on homepage)
 import Blog from "./pages/Blog";
 import Education from "./pages/Education";
@@ -26,7 +26,6 @@ import Achievements from "./components/Achievements";
 const ASPECTS = [
   "Full-Stack Web Development (React, Node.js, Express, MongoDB)",
   "DevOps & Cloud (AWS, Docker, Kubernetes, CI/CD, Infrastructure Automation)",
-  "Optimized & Scalable Code (Data Structures & Algorithms in Java)",
   "Building High-Performance RESTful & GraphQL APIs",
   "Database Design, Management & Optimization",
   "Continuous Learning — always exploring the bleeding edge",
@@ -43,7 +42,9 @@ const AboutSection = () => {
         </h2>
         <div className="about-wrap">
           <div className={`about-img-wrap fade-up fade-up-d2 ${inView ? "visible" : ""}`}>
-            <div className="about-img">👨‍💻</div>
+          <div className="about-img">
+  <img src={profileImg} alt="Ankit Singh" className="about-profile-img" />
+</div>
             <div className="about-img-tag">
               <div className="about-tag-num">3+</div>
               <div className="about-tag-label">Projects Shipped</div>

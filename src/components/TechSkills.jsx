@@ -59,18 +59,18 @@ const CATEGORIES = [
       { name: "Linux",      src: `${BASE}/linux/linux-original.svg` },
     ],
   },
-  {
-    label: "AI & ML",
-    color: "#ec4899",
-    skills: [
-      { name: "TensorFlow", src: `${BASE}/tensorflow/tensorflow-original.svg` },
-      { name: "PyTorch",    src: `${BASE}/pytorch/pytorch-original.svg` },
-      { name: "OpenCV",     src: `${BASE}/opencv/opencv-original.svg` },
-      { name: "Jupyter",    src: `${BASE}/jupyter/jupyter-original.svg` },
-      { name: "NumPy",      src: `${BASE}/numpy/numpy-original.svg` },
-      { name: "Pandas",     src: `${BASE}/pandas/pandas-original.svg` },
-    ],
-  },
+  // {
+  //   label: "AI & ML",
+  //   color: "#ec4899",
+  //   skills: [
+  //     { name: "TensorFlow", src: `${BASE}/tensorflow/tensorflow-original.svg` },
+  //     { name: "PyTorch",    src: `${BASE}/pytorch/pytorch-original.svg` },
+  //     { name: "OpenCV",     src: `${BASE}/opencv/opencv-original.svg` },
+  //     { name: "Jupyter",    src: `${BASE}/jupyter/jupyter-original.svg` },
+  //     { name: "NumPy",      src: `${BASE}/numpy/numpy-original.svg` },
+  //     { name: "Pandas",     src: `${BASE}/pandas/pandas-original.svg` },
+  //   ],
+  // },
 ];
 
 const TechSkills = () => {
