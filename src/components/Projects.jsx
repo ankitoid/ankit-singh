@@ -1,80 +1,89 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { useInView } from "../hooks";
 import homestay from "../assets/homestay.png";
 import helloworld from "../assets/helloworld.png";
 import taskmanager from "../assets/taskmanager.png";
 
-const portfolioData = [
+const PROJECTS = [
   {
-    id: "1",
     src: homestay,
     title: "Excellence Study",
-    description: "A full stack based web application to support authentic family to run their homestay by providing accommodation to students. ReactJS was used to create a fully responsive, single-page frontend. GraphQL is used to embed notes from Hashnode, and Next.js handles API routes.",
-    link: "https://github.com/ankitoid/Excellence-Study"
+    tag: "Full Stack",
+    desc: "Family homestay platform supporting authentic accommodation for students. Built with React, Next.js, and GraphQL with Hashnode blog integration.",
+    techs: ["React", "Next.js", "GraphQL"],
+    link: "https://github.com/ankitoid/Excellence-Study",
   },
   {
-    id: "2",
     src: helloworld,
     title: "Hello World!",
-    description: "A full-stack web app that emulates core functionality of social media platforms. Features include user login/signup, post creation, liking posts, and following/unfollowing other users. React is used with Redux for state management, and JWT Token for authentication.",
-    link: "https://github.com/ankitoid/Hello-World"
+    tag: "Social App",
+    desc: "Full-stack social media web app with user auth, post creation, likes, follow/unfollow. React + Redux for state management with JWT authentication.",
+    techs: ["React", "Redux", "JWT"],
+    link: "https://github.com/ankitoid/Hello-World",
   },
   {
-    id: "3",
     src: taskmanager,
     title: "Fitness Club",
-    description: "A full-stack Fitness Club web application that empowers users with efficient fitness functionality. With comprehensive CRUD operations, users can create, view, update, and delete tasks, ensuring a seamless and organized GYM management experience.",
-    link: "https://github.com/ankitoid/FitnessClub/tree/main"
-  }
+    tag: "MERN Stack",
+    desc: "Full-stack fitness management platform with comprehensive CRUD operations, workout planning, and GYM membership management capabilities.",
+    techs: ["MongoDB", "Express", "React"],
+    link: "https://github.com/ankitoid/FitnessClub/tree/main",
+  },
 ];
 
-const MyPortfolio = () => {
-  const goToGithub = () => {
-    window.open("https://github.com/ankitoid", "_blank");
-  };
+const Projects = () => {
+  const [ref, inView] = useInView();
 
   return (
-    <section className="portfolio--section py-20 bg-[#111010] text-white max-w-7xl mx-auto" id="MyProjects">
-      <div className="portfolio--container-box text-center mb-10">
-        <h2 className="text-4xl font-bold">My Projects</h2>
-        <p className="text-gray-400 mt-2">Explore my latest work in web development and software engineering.</p>
-        <button className="btn-github mt-4 px-6 py-2 bg-blue-600 rounded-md text-white hover:bg-blue-700 transition" onClick={goToGithub}>
-          Visit My GitHub
-        </button>
-      </div>
-
-      <motion.div 
-        className="portfolio--section--container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-6"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        {portfolioData.map((item, idx) => (
-          <motion.div
-            key={idx}
-            className="portfolio--section--card bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:scale-105 transition-transform"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: idx * 0.1, duration: 0.5 }}
+    <section id="MyProjects" className="section" style={{ background: "var(--bg2)" }} ref={ref}>
+      <div className="section-inner">
+        {/* Header row */}
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "60px", flexWrap: "wrap", gap: "20px" }}>
+          <div>
+            <div className={`section-label fade-up ${inView ? "visible" : ""}`}>Portfolio</div>
+            <h2 className={`section-title fade-up fade-up-d1 ${inView ? "visible" : ""}`} style={{ marginBottom: 0 }}>
+              Featured <span>Projects</span>
+            </h2>
+          </div>
+          <button
+            className={`btn-primary fade-up ${inView ? "visible" : ""}`}
+            onClick={() => window.open("https://github.com/ankitoid", "_blank")}
           >
-            <div className="portfolio--section--img">
-              <img src={item.src} alt={item.title} className="w-full h-48 object-cover" />
+            View All on GitHub →
+          </button>
+        </div>
+
+        <div className="projects-grid">
+          {PROJECTS.map((p, i) => (
+            <div
+              key={i}
+              className={`project-card fade-up fade-up-d${i + 1} ${inView ? "visible" : ""}`}
+            >
+              <div className="project-img">
+                <img src={p.src} alt={p.title} />
+                <div className="project-img-overlay" />
+                <div className="project-tag">{p.tag}</div>
+              </div>
+              <div className="project-body">
+                <h3 className="project-title">{p.title}</h3>
+                <p className="project-desc">{p.desc}</p>
+                <div className="project-footer">
+                  <div className="project-techs">
+                    {p.techs.map((t) => (
+                      <span key={t} className="tech-tag">{t}</span>
+                    ))}
+                  </div>
+                  <a href={p.link} target="_blank" rel="noreferrer" className="project-link">
+                    GitHub →
+                  </a>
+                </div>
+              </div>
             </div>
-            <div className="portfolio--section--card--content p-6">
-              <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-              <p className="text-gray-400 text-sm mb-4">{item.description}</p>
-              <button
-                className="go--to--github--button px-4 py-2 bg-blue-600 rounded-md text-white hover:bg-blue-700 transition"
-                onClick={() => window.open(item.link, "_blank")}
-              >
-                View on GitHub
-              </button>
-            </div>
-          </motion.div>
-        ))}
-      </motion.div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 };
 
-export default MyPortfolio;
+export default Projects;

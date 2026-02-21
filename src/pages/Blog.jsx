@@ -1,68 +1,68 @@
 import React from "react";
+import { useInView } from "../hooks";
 import TechBlog from "../assets/Resources/techBlog.jpg";
 import Tutorial from "../assets/Resources/tutorial.jpg";
 import interviewPrep from "../assets/Resources/interviewImg.jpg";
 
+const BLOGS = [
+  {
+    src: TechBlog,
+    title: "Tech Blog",
+    desc: "Deep dives into Front-End patterns, DevOps pipelines, and modern web architecture.",
+    link: "https://studyespace.vercel.app/blog",
+    bar: "linear-gradient(90deg,#3b82f6,#6366f1)",
+  },
+  {
+    src: Tutorial,
+    title: "Tutorials",
+    desc: "Step-by-step guides on modern web development — from React hooks to Kubernetes.",
+    link: "https://studyespace.vercel.app/courses",
+    bar: "linear-gradient(90deg,#10b981,#06b6d4)",
+  },
+  {
+    src: interviewPrep,
+    title: "Interview Prep",
+    desc: "Curated coding problems and system design resources to crack top-tier interviews.",
+    link: "https://studyespace.vercel.app/About-Us",
+    bar: "linear-gradient(90deg,#f59e0b,#ef4444)",
+  },
+  {
+    src: interviewPrep,
+    title: "Job Board",
+    desc: "Curated list of tech opportunities for developers — from startups to FAANG.",
+    link: "https://studyespace.vercel.app/Job-Opportunities",
+    bar: "linear-gradient(90deg,#ec4899,#8b5cf6)",
+  },
+];
+
 const Blog = () => {
-  const blogs = [
-    {
-      title: "Tech Blog",
-      description: "Explore my latest tech blogs on Front-End, DevOps.",
-      link: "https://studyespace.vercel.app/blog",
-      image: TechBlog,
-      bg: "bg-blue-600",
-    },
-    {
-      title: "Tutorials",
-      description: "Step-by-step guides on modern web development.",
-      link: "https://studyespace.vercel.app/courses",
-      image: Tutorial,
-      bg: "bg-green-600",
-    },
-    {
-      title: "Interview Practice",
-      description: "Crack coding interviews with my practice questions.",
-      link: "https://studyespace.vercel.app/About-Us",
-      image: interviewPrep,
-      bg: "bg-yellow-600",
-    }, {
-      title: "Job Opportunities",
-      description: "Found your dream job with my curated list of opportunities.",
-      link: "https://studyespace.vercel.app/Job-Opportunities",
-      image: interviewPrep,
-      bg: "bg-red-600",
-    },
-  ];
+  const [ref, inView] = useInView();
+
   return (
-    <section className="bg-[#111010] text-white py-16">
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-12 relative inline-block before:absolute before:-inset-2 before:bg-gradient-to-r before:from-blue-400 before:to-purple-600 before:-z-10 before:rounded-lg">
-          My Blog & Resources
+    <section className="section" ref={ref}>
+      <div className="section-inner">
+        <div className={`section-label fade-up ${inView ? "visible" : ""}`}>Content</div>
+        <h2 className={`section-title fade-up fade-up-d1 ${inView ? "visible" : ""}`}>
+          Blog &amp; <span>Resources</span>
         </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {blogs.map((blog, index) => (
+
+        <div className="blog-grid">
+          {BLOGS.map((b, i) => (
             <a
-              key={index}
-              href={blog.link}
+              key={i}
+              href={b.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block overflow-hidden rounded-xl shadow-lg transform transition duration-500 hover:scale-100 hover:shadow-2xl"
+              className={`blog-card fade-up fade-up-d${i + 1} ${inView ? "visible" : ""}`}
             >
-              <div className="relative w-full h-56 overflow-hidden">
-                <img
-                  src={blog.image}
-                  alt={blog.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0  bg-opacity-50 group-hover:bg-opacity-30 transition duration-500"></div>
+              <div className="blog-img">
+                <img src={b.src} alt={b.title} />
               </div>
-              <div className={`p-6 ${blog.bg} text-white`}>
-                <h3 className="text-xl font-semibold mb-2 group-hover:text-yellow-300 transition-colors duration-300">
-                  {blog.title}
-                </h3>
-                <p className="text-sm opacity-90 group-hover:opacity-100 transition-opacity duration-300">
-                  {blog.description}
-                </p>
+              <div className="blog-color-bar" style={{ background: b.bar }} />
+              <div className="blog-body">
+                <div className="blog-title">{b.title}</div>
+                <div className="blog-desc">{b.desc}</div>
+                <div className="blog-link">Read more →</div>
               </div>
             </a>
           ))}

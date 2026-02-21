@@ -1,68 +1,62 @@
 import React from "react";
+import { useInView } from "../hooks";
 import frontend from "../assets/frontend.png";
 import uiux from "../assets/ui-ux.png";
 import devops from "../assets/devops.png";
 
-const SkillCard = ({ src, title, description, bgColor }) => {
-  return (
-    <div
-      className="rounded-[12px] border-[0.8px] shadow-lg transform transition duration-300 hover:bg-[#75A0EE] hover:shadow-md flex flex-col cursor-pointer "
-      style={{
-        width: "320px",
-        height: "400px",
-        gap: "10px",
-        padding: "25px 30px",
-        backgroundColor: "#16233C",
-      }}
-    >
-      <div className="flex justify-center ">
-        <img src={src} alt={title} className="w-36 mt-8" />
-      </div>
-      <div className="flex flex-col justify-end flex-grow">
-        <h3 className="text-3xl text-white font-semibold mb-2 text-left transition duration-300 hover:text-white">
-          {title}
-        </h3>
-        <p className="text-white text-sm text-left transition duration-300 hover:text-white">
-          {description}
-        </p>
-      </div>
-    </div>
-  );
-};
+const SERVICES = [
+  {
+    src: frontend,
+    icon: "⚛️",
+    title: "Front-End Development",
+    desc: "Crafting pixel-perfect, responsive interfaces using React.js, Tailwind CSS, and modern animation libraries for exceptional UX.",
+    num: "01",
+  },
+  {
+    src: uiux,
+    icon: "🎨",
+    title: "UI & UX Design",
+    desc: "Designing intuitive, user-centered experiences with Figma — from wireframes to high-fidelity prototypes that convert.",
+    num: "02",
+  },
+  {
+    src: devops,
+    icon: "☁️",
+    title: "DevOps & Cloud",
+    desc: "End-to-end deployment pipelines with AWS, Docker, Kubernetes, and Jenkins. Infrastructure as code. Zero-downtime deployments.",
+    num: "03",
+  },
+];
 
 const Skills = () => {
+  const [ref, inView] = useInView();
+
   return (
-    <section
-      className=" max-w-7xl mx-auto  bg-[#111010] mt-16 p-10 md:mt-0 md:p-0" 
-      id="Myskills"
-    >
-      <h2 className="text-center text-3xl font-bold mb-10 text-white">
-        Services
-      </h2>
-      <div className="flex flex-wrap justify-center gap-8 px-6">
-        {/* Frontend Skill Box */}
-        <SkillCard
-          src={frontend}
-          title="Front-End Development"
-          description="Expertise in building responsive and user-friendly interfaces using React.js, JavaScript, and Tailwind."
-          bgColor="#16233C"
-        />
-
-        {/* UI/UX Skill Box */}
-        <SkillCard
-          src={uiux}
-          title="UI & UX Design"
-          description="Passionate about designing intuitive user experiences with Figma, Adobe XD, and modern UI frameworks."
-          bgColor=" #16233C"
-        />
-
-        {/* DevOps Skill Box */}
-        <SkillCard
-          src={devops}
-          title="DevOps & Cloud Deployment"
-          description="Hands-on experience with AWS, Docker, Kubernetes, and CI/CD pipelines for seamless deployment."
-          bgColor="#16233C"
-        />
+    <section id="Myskills" className="section" ref={ref}>
+      <div className="section-inner">
+        <div className={`section-label fade-up ${inView ? "visible" : ""}`}>What I Do</div>
+        <h2 className={`section-title fade-up fade-up-d1 ${inView ? "visible" : ""}`}>
+          My <span>Services</span>
+        </h2>
+        <div className="services-grid">
+          {SERVICES.map((c, i) => (
+            <div
+              key={i}
+              className={`service-card fade-up fade-up-d${i + 1} ${inView ? "visible" : ""}`}
+            >
+              <div className="service-number">{c.num}</div>
+              <div className="service-icon">
+                {c.src ? (
+                  <img src={c.src} alt={c.title} style={{ width: 36, height: 36, objectFit: "contain" }} />
+                ) : (
+                  c.icon
+                )}
+              </div>
+              <h3>{c.title}</h3>
+              <p>{c.desc}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

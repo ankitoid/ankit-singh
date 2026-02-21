@@ -1,151 +1,284 @@
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import Java from "../assets/Languages/java.webp";
-import js from "../assets/Languages/js.png";
-import nodejs from "../assets/Languages/nodejs.png";
-import react from "../assets/Languages/react.png";
-import redux from "../assets/Languages/redux.png";
-import express from "../assets/Languages/express.png";
-import mongodb from "../assets/Languages/mongodb.png";
-import mysql from "../assets/Languages/mysql.png";
-// import git from "../assets/Languages/git.png";
-import github from "../assets/Languages/github.png";
-import jenkins from "../assets/Languages/jenkins.png";
-import docker from "../assets/Languages/docker.png";
-import aws from "../assets/Languages/aws.png";
-import k8 from "../assets/Languages/k8.png";
-import tailwind from "../assets/Languages/tailwind.png";
+import React, { useState } from "react";
+import { useInView } from "../hooks";
 
-const skilldata = [
+// ── All logos from devicons CDN — no local files needed ──────────────────────
+const BASE = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons";
+
+const CATEGORIES = [
   {
-    src: Java,
-    title: "Java",
-    description:
-      "C++ is a powerful, high-performance programming language widely used for system/software development, game development, and real-time applications.",
+    label: "Languages",
+    color: "#3b82f6",
+    skills: [
+      { name: "JavaScript", src: `${BASE}/javascript/javascript-original.svg` },
+      { name: "TypeScript", src: `${BASE}/typescript/typescript-original.svg` },
+      { name: "Java",       src: `${BASE}/java/java-original.svg` },
+      { name: "Python",     src: `${BASE}/python/python-original.svg` },
+    ],
   },
   {
-    src: js,
-    title: "JavaScript",
-    description:
-      "JavaScript is a versatile programming language primarily used for web development to create dynamic and interactive web applications.",
+    label: "Frontend",
+    color: "#06b6d4",
+    skills: [
+      { name: "React",    src: `${BASE}/react/react-original.svg` },
+      { name: "Next.js",  src: `${BASE}/nextjs/nextjs-original.svg`,    invert: true },
+      { name: "Redux",    src: `${BASE}/redux/redux-original.svg` },
+      { name: "Tailwind", src: `${BASE}/tailwindcss/tailwindcss-original.svg` },
+      { name: "HTML5",    src: `${BASE}/html5/html5-original.svg` },
+      { name: "CSS3",     src: `${BASE}/css3/css3-original.svg` },
+    ],
   },
   {
-    src: nodejs,
-    title: "Node.js",
-    description:
-      "Node.js is a runtime environment that allows developers to run JavaScript on the server, enabling backend development with high scalability and performance.",
+    label: "Backend",
+    color: "#10b981",
+    skills: [
+      { name: "Node.js",    src: `${BASE}/nodejs/nodejs-original.svg` },
+      { name: "Express.js", src: `${BASE}/express/express-original.svg`, invert: true },
+      { name: "GraphQL",    src: `${BASE}/graphql/graphql-plain.svg` },
+    ],
   },
   {
-    src: react,
-    title: "React",
-    description:
-      "React is a popular JavaScript library for building user interfaces, particularly for single-page applications with a component-based architecture.",
+    label: "Database",
+    color: "#f59e0b",
+    skills: [
+      { name: "MongoDB", src: `${BASE}/mongodb/mongodb-original.svg` },
+      { name: "MySQL",   src: `${BASE}/mysql/mysql-original.svg` },
+      { name: "PostgreSQL", src: `${BASE}/postgresql/postgresql-original.svg` },
+      { name: "Redis",   src: `${BASE}/redis/redis-original.svg` },
+    ],
   },
   {
-    src: redux,
-    title: "Redux",
-    description:
-      "Redux is a state management library for JavaScript applications, often used with React to manage application state in a predictable manner.",
+    label: "DevOps & Cloud",
+    color: "#8b5cf6",
+    skills: [
+      { name: "Docker",     src: `${BASE}/docker/docker-original.svg` },
+      { name: "Kubernetes", src: `${BASE}/kubernetes/kubernetes-original.svg` },
+      { name: "AWS",        src: `${BASE}/amazonwebservices/amazonwebservices-original-wordmark.svg` },
+      { name: "Jenkins",    src: `${BASE}/jenkins/jenkins-original.svg` },
+      { name: "GitHub",     src: `${BASE}/github/github-original.svg`, invert: true },
+      { name: "Git",        src: `${BASE}/git/git-original.svg` },
+      { name: "Linux",      src: `${BASE}/linux/linux-original.svg` },
+    ],
   },
   {
-    src: express,
-    title: "Express.js",
-    description:
-      "Express.js is a minimal and flexible Node.js web application framework that provides a set of features for building APIs and web applications.",
-  },
-  {
-    src: mongodb,
-    title: "MongoDB",
-    description:
-      "MongoDB is a NoSQL database that stores data in a flexible, JSON-like format, making it ideal for scalable and high-performance applications.",
-  },
-  {
-    src: mysql,
-    title: "MySQL",
-    description:
-      "MySQL is a widely-used open-source relational database management system known for its reliability, scalability, and structured query language (SQL).",
-  },
-  // { src: git, title: "Git", description: "Git is a distributed version control system that helps developers track changes in code, collaborate effectively, and manage software development projects." },
-  {
-    src: github,
-    title: "GitHub",
-    description:
-      "GitHub is a web-based platform for version control and collaborative software development using Git, providing repositories, issue tracking, and CI/CD integrations.",
-  },
-  {
-    src: jenkins,
-    title: "Jenkins",
-    description:
-      "Jenkins is an open-source automation server used for continuous integration and continuous deployment (CI/CD) in software development pipelines.",
-  },
-  {
-    src: docker,
-    title: "Docker",
-    description:
-      "Docker is a platform for developing, shipping, and running applications in lightweight, portable containers, ensuring consistency across environments.",
-  },
-  {
-    src: aws,
-    title: "AWS",
-    description:
-      "Amazon Web Services (AWS) is a comprehensive cloud computing platform providing on-demand infrastructure, storage, databases, and AI services.",
-  },
-  {
-    src: k8,
-    title: "Kubernetes",
-    description:
-      "Kubernetes is an open-source container orchestration system that automates the deployment, scaling, and management of containerized applications.",
-  },
-  {
-    src: tailwind,
-    title: "Tailwind CSS",
-    description:
-      "Tailwind CSS is a utility-first CSS framework that enables rapid UI development with a flexible and responsive design system.",
+    label: "AI & ML",
+    color: "#ec4899",
+    skills: [
+      { name: "TensorFlow", src: `${BASE}/tensorflow/tensorflow-original.svg` },
+      { name: "PyTorch",    src: `${BASE}/pytorch/pytorch-original.svg` },
+      { name: "OpenCV",     src: `${BASE}/opencv/opencv-original.svg` },
+      { name: "Jupyter",    src: `${BASE}/jupyter/jupyter-original.svg` },
+      { name: "NumPy",      src: `${BASE}/numpy/numpy-original.svg` },
+      { name: "Pandas",     src: `${BASE}/pandas/pandas-original.svg` },
+    ],
   },
 ];
 
 const TechSkills = () => {
-  const [animate, setAnimate] = useState(false);
+  const [ref, inView] = useInView();
+  const [activeCategory, setActiveCategory] = useState("All");
 
-  useEffect(() => {
-    setTimeout(() => setAnimate(true), 400);
-  }, []);
+  const allLabels = ["All", ...CATEGORIES.map((c) => c.label)];
+
+  const visibleCategories =
+    activeCategory === "All"
+      ? CATEGORIES
+      : CATEGORIES.filter((c) => c.label === activeCategory);
 
   return (
-    <section
-      id="tech-skills"
-      className="bg-[#111010] py-10 text-white max-w-7xl mx-auto"
-    >
-      <div className="container mx-auto px-6 text-center">
-        <h2 className="text-3xl font-bold mb-6">Technical Skills</h2>
-      </div>
-      <motion.div
-        className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-2 px-6"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: animate ? 1 : 0 }}
-        transition={{ duration: 1 }}
-      >
-        {skilldata.map((item, idx) => (
-          <motion.div
-            key={idx}
-            className="p-6 bg-transparent rounded-xl shadow-lg text-center hover:scale-105 transition-transform"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: idx * 0.1, duration: 0.5 }}
-          >
-            <div className="w-20 h-20 mx-auto mb-4 ">
-              <img
-                src={item.src}
-                alt={item.title}
-                className="w-full h-full object-contain"
-              />
+    <>
+      <style>{`
+        .ts-section {
+          padding: 100px 48px;
+          background: var(--bg2);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .ts-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+
+        /* ── FILTER TABS ── */
+        .ts-tabs {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+          margin-bottom: 52px;
+        }
+        .ts-tab {
+          padding: 7px 18px;
+          border-radius: 20px;
+          font-family: 'DM Mono', monospace;
+          font-size: 0.72rem;
+          letter-spacing: 0.07em;
+          text-transform: uppercase;
+          border: 1px solid var(--border);
+          background: var(--card);
+          color: var(--text2);
+          cursor: pointer;
+          transition: all 0.2s;
+        }
+        .ts-tab:hover { border-color: var(--accent); color: var(--accent); }
+        .ts-tab.active {
+          background: var(--accent);
+          border-color: var(--accent);
+          color: #fff;
+          box-shadow: 0 4px 16px var(--glow);
+        }
+
+        /* ── CATEGORY BLOCK ── */
+        .ts-category { margin-bottom: 44px; }
+        .ts-category-label {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 16px;
+        }
+        .ts-category-dot {
+          width: 8px; height: 8px;
+          border-radius: 50%;
+          flex-shrink: 0;
+        }
+        .ts-category-name {
+          font-family: 'DM Mono', monospace;
+          font-size: 0.72rem;
+          letter-spacing: 0.15em;
+          text-transform: uppercase;
+          color: var(--text2);
+        }
+        .ts-category-line {
+          flex: 1;
+          height: 1px;
+          background: var(--border);
+        }
+
+        /* ── SKILL CHIPS ── */
+        .ts-chips {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+
+        .ts-chip {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 10px 16px;
+          background: var(--card);
+          border: 1px solid var(--border);
+          border-radius: 12px;
+          transition: all 0.22s;
+          cursor: default;
+          position: relative;
+          overflow: hidden;
+        }
+        .ts-chip::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(135deg, var(--chip-color), transparent);
+          opacity: 0;
+          transition: opacity 0.25s;
+          border-radius: 12px;
+        }
+        .ts-chip:hover {
+          border-color: var(--chip-color);
+          transform: translateY(-3px);
+          box-shadow: 0 8px 24px color-mix(in srgb, var(--chip-color) 25%, transparent);
+        }
+        .ts-chip:hover::before { opacity: 0.07; }
+
+        .ts-chip img {
+          width: 28px;
+          height: 28px;
+          object-fit: contain;
+          position: relative;
+          z-index: 1;
+          flex-shrink: 0;
+        }
+        .ts-chip span {
+          font-size: 0.82rem;
+          font-weight: 500;
+          color: var(--text2);
+          position: relative;
+          z-index: 1;
+          white-space: nowrap;
+          transition: color 0.2s;
+        }
+        .ts-chip:hover span { color: var(--text); }
+
+        /* inverted logos (black SVGs on dark bg) */
+        .ts-chip img.invert-dark {
+          filter: invert(1);
+        }
+        .portfolio-root.light .ts-chip img.invert-dark {
+          filter: none;
+        }
+
+        @media (max-width: 768px) {
+          .ts-section { padding: 80px 24px; }
+        }
+      `}</style>
+
+      <section id="Myskills-tech" className="ts-section" ref={ref}>
+        <div className="ts-inner">
+          <div className={`section-label fade-up ${inView ? "visible" : ""}`}>Technology</div>
+          <h2 className={`section-title fade-up fade-up-d1 ${inView ? "visible" : ""}`}>
+            Technical <span>Stack</span>
+          </h2>
+
+          {/* Filter tabs */}
+          <div className={`ts-tabs fade-up fade-up-d2 ${inView ? "visible" : ""}`}>
+            {allLabels.map((label) => (
+              <button
+                key={label}
+                className={`ts-tab ${activeCategory === label ? "active" : ""}`}
+                onClick={() => setActiveCategory(label)}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+
+          {/* Skill categories */}
+          {visibleCategories.map((cat, ci) => (
+            <div
+              key={cat.label}
+              className={`ts-category fade-up ${inView ? "visible" : ""}`}
+              style={{ transitionDelay: `${ci * 0.08}s` }}
+            >
+              {/* category label row */}
+              <div className="ts-category-label">
+                <div className="ts-category-dot" style={{ background: cat.color }} />
+                <span className="ts-category-name">{cat.label}</span>
+                <div className="ts-category-line" />
+              </div>
+
+              {/* chips */}
+              <div className="ts-chips">
+                {cat.skills.map((skill, si) => (
+                  <div
+                    key={skill.name}
+                    className="ts-chip"
+                    style={{
+                      "--chip-color": cat.color,
+                      transitionDelay: `${si * 0.04}s`,
+                    }}
+                  >
+                    <img
+                      src={skill.src}
+                      alt={skill.name}
+                      className={skill.invert ? "invert-dark" : ""}
+                      loading="lazy"
+                      onError={(e) => { e.target.style.display = "none"; }}
+                    />
+                    <span>{skill.name}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-            <h3 className="text-xl text-white  mb-2">{item.title}</h3>
-            {/* <p className="text-gray-600 text-sm">{item.description}</p> */}
-          </motion.div>
-        ))}
-      </motion.div>
-    </section>
+          ))}
+        </div>
+      </section>
+    </>
   );
 };
 

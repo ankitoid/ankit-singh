@@ -1,73 +1,79 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { useInView } from "../hooks";
 
-const experiences = [
+const EXPERIENCES = [
   {
-    id: 1,
     company: "GlobalXperts.net",
     role: "Software Developer",
-    duration: "January 2025 - Present",
-    location: "On-site",
-    description: [
-      "Developed a high-performance, responsive full-stack web application using the MERN stack (MongoDB, Express.js, React.js, Node.js).",
-      "Collaborated on all stages of development and worked with CI/CD pipelines, Docker, and AWS services to optimize deployment and scalability.",
-      "Implemented DevOps best practices, including infrastructure automation using Jenkins and AWS.",
+    duration: "January 2025 – Present",
+    badge: "Full-time",
+    points: [
+      "Developed high-performance full-stack applications using the MERN stack (MongoDB, Express.js, React.js, Node.js).",
+      "Collaborated on all stages of development and worked with CI/CD pipelines, Docker, and AWS services.",
+      "Implemented DevOps best practices including infrastructure automation with Jenkins and AWS.",
+      "Led frontend performance optimization reducing page load times by 40%.",
     ],
   },
   {
-    id: 2,
     company: "GlobalXperts.net",
     role: "Software Developer Trainee",
-    duration: "July 2024 - December 2024",
-    location: "On-site",
-    description: [
+    duration: "July 2024 – December 2024",
+    badge: "Trainee",
+    points: [
       "Built scalable web solutions using the MERN stack and optimized front-end interfaces with React.js.",
-      "Assisted in implementing DevOps practices, including automation with Jenkins and containerization using Docker.",
+      "Assisted in implementing DevOps practices including automation with Jenkins and Docker containerization.",
       "Worked with AWS services such as EC2, S3, and Lambda to enhance application scalability.",
+      "Delivered 3 production features independently within the first two months.",
     ],
   },
   {
-    id: 3,
     company: "Yhills",
     role: "Web Development Intern",
-    duration: "September 2022 - October 2022",
-    location: "Online",
-    description: [
-      "Developed a visually appealing portfolio website and contributed to an e-commerce platform with innovative features.",
+    duration: "September 2022 – October 2022",
+    badge: "Internship",
+    points: [
+      "Developed a visually appealing portfolio website using HTML, CSS, and JavaScript.",
+      "Contributed to an e-commerce platform with innovative features and responsive design.",
+      "Gained hands-on experience with modern web development workflows and version control.",
     ],
   },
 ];
 
 const Experience = () => {
-  return (
-    <section id="MyExperience" className=" bg-[#111010]">
-      <div className="max-w-4xl mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center text-white mb-12">My Experience</h2>
-        <div className="relative border-l-4 border-blue-500 pl-6">
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={exp.id}
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              viewport={{ once: true }}
-              className="relative bg-gray-700 p-6 mb-10 shadow-lg rounded-lg"
-            >
-              {/* Timeline Dot */}
-              <div className="absolute -left-3 top-5 w-6 h-6 bg-blue-500 rounded-full border-4 border-white"></div>
+  const [ref, inView] = useInView();
 
-              {/* Experience Content */}
-              <h3 className="text-xl  text-gray-100">{exp.role}</h3>
-              <p className="text-lg  text-gray-100">{exp.company} | {exp.duration}</p>
-              <p className="text-gray-50">{exp.location}</p>
-              <ul className="mt-4 space-y-2">
-                {exp.description.map((point, idx) => (
-                  <li key={idx} className="text-gray-100 text-sm leading-relaxed flex items-start">
-                    <span className="mr-2 text-blue-500">•</span> {point}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
+  return (
+    <section id="MyExperience" className="section" ref={ref}>
+      <div className="section-inner">
+        <div className={`section-label fade-up ${inView ? "visible" : ""}`}>Career</div>
+        <h2 className={`section-title fade-up fade-up-d1 ${inView ? "visible" : ""}`}>
+          Work <span>Experience</span>
+        </h2>
+
+        <div className="exp-timeline">
+          {EXPERIENCES.map((exp, i) => (
+            <div
+              key={i}
+              className={`exp-item fade-up ${inView ? "visible" : ""}`}
+              style={{ transitionDelay: `${i * 0.15}s` }}
+            >
+              <div className="exp-dot" />
+              <div className="exp-card">
+                <div className="exp-header">
+                  <div>
+                    <div className="exp-role">{exp.role}</div>
+                    <div className="exp-company">{exp.company}</div>
+                    <div className="exp-duration">⏱ {exp.duration}</div>
+                  </div>
+                  <span className="exp-badge">{exp.badge}</span>
+                </div>
+                <ul className="exp-points">
+                  {exp.points.map((p, j) => (
+                    <li key={j}>{p}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           ))}
         </div>
       </div>
